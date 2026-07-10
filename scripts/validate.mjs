@@ -32,7 +32,12 @@ if (existsSync(packDirectory)) {
       if (interpolationTokens(pack[key]).join(",") !== interpolationTokens(expected[key]).join(",")) {
         throw new Error(`${locale}: interpolation mismatch for ${key}`);
       }
-      if (key.endsWith("_one") && pack[`${key.slice(0, -"_one".length)}_other`] === undefined) {
+      const pluralBaseKey = key.endsWith("_one") ? key.slice(0, -"_one".length) : null;
+      if (
+        pluralBaseKey !== null
+        && expected[pluralBaseKey] !== undefined
+        && pack[`${pluralBaseKey}_other`] === undefined
+      ) {
         throw new Error(`${locale}: missing plural pair for ${key}`);
       }
     }

@@ -1,0 +1,16 @@
+{
+  "ja-JP": {
+    "nativeName": "日本語",
+    "englishName": "Japanese",
+    "aliases": ["ja", "jp", "japanese", "nihongo", "nihon", "日本語", "にほんご"],
+    "version": "0.1.0",
+    "minAppVersion": "0.1.0"
+  },
+  "ko-KR": {
+    "nativeName": "한국어",
+    "englishName": "Korean",
+    "aliases": ["ko", "kr", "korean", "hanguk", "hangugeo", "한국어", "한글"],
+    "version": "0.1.0",
+    "minAppVersion": "0.1.0"
+  }
+}
