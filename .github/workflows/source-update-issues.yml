@@ -1,0 +1,83 @@
+name: Create translation update issues
+
+on:
+  repository_dispatch:
+    types: [lyra-source-updated]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  open-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: petehsu/Lyra
+          ref: ${{ github.event.client_payload.commit }}
+          path: lyra-source
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.7.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: lyra-source/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+        working-directory: lyra-source
+      - run: pnpm exec tsx tools/generate-language-pack-source-manifest.ts --output "$RUNNER_TEMP/source-manifest.v1.json"
+        working-directory: lyra-source
+      - uses: actions/github-script@v7
+        env:
+          SOURCE_COMMIT: ${{ github.event.client_payload.commit }}
+          SOURCE_MANIFEST: ${{ runner.temp }}/source-manifest.v1.json
+        with:
+          script: |
+            const fs = require("fs");
+            const current = JSON.parse(fs.readFileSync(process.env.SOURCE_MANIFEST, "utf8"));
+            const currentValues = new Map(current.entries.map(({ key, source }) => [key, source]));
+            for (const locale of ["ja-JP", "ko-KR"]) {
+              const baselinePath = `source/baselines/${locale}.source-manifest.v1.json`;
+              const baseline = fs.existsSync(baselinePath)
+                ? JSON.parse(fs.readFileSync(baselinePath, "utf8"))
+                : { entries: [] };
+              const baselineValues = new Map(baseline.entries.map(({ key, source }) => [key, source]));
+              const changed = [...currentValues.keys()]
+                .filter((key) => currentValues.get(key) !== baselineValues.get(key));
+              if (changed.length === 0) continue;
+              const title = `Translation update: ${locale}`;
+              const body = [
+                `Lyra source commit: \`${process.env.SOURCE_COMMIT}\``,
+                `Source content hash: \`${current.contentHash}\``,
+                "",
+                `Changed keys (${changed.length}):`,
+                ...changed.slice(0, 100).map((key) => `- \`${key}\``),
+                ...(changed.length > 100 ? [`- …and ${changed.length - 100} more`] : [])
+              ].join("\n");
+              const existing = await github.rest.issues.listForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: "open",
+                labels: "needs-update",
+                per_page: 100
+              });
+              const issue = existing.data.find((item) => item.title === title);
+              if (issue) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  body
+                });
+              } else {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  body,
+                  labels: ["needs-update"]
+                });
+              }

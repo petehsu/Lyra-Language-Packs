@@ -1,0 +1,11 @@
+{
+  "name": "lyra-language-packs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build-release": "node scripts/build-release.mjs",
+    "refresh-baselines": "node scripts/refresh-baselines.mjs",
+    "seed-drafts": "node scripts/seed-draft-packs.mjs"
+  }
+}
