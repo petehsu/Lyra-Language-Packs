@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "appVersion": "0.1.0",
-  "keysetHash": "cac04665f6fe5566dc017adf4b969147793b89202b4862402275b1b91c7ddc72",
-  "contentHash": "fb8d9e3313bd05b3813736e863527ab8f761a75b47ab1386f58bba1926e78382",
+  "keysetHash": "517332798aa8fcf913fee9915aa16ad21b92b4245670b2432472e17227929cc2",
+  "contentHash": "106991777c0422d0f1a7e750c161753ae10391560c629682f8a1a85413e0c2eb",
   "entries": [
     {
       "key": "agentGit.binaryDiff",
@@ -2569,6 +2569,10 @@
       "source": "Agent is running"
     },
     {
+      "key": "lyra-agents-oma.beta",
+      "source": "Beta"
+    },
+    {
       "key": "lyra-agents-oma.channels",
       "source": "Oma channels"
     },
@@ -2578,7 +2582,7 @@
     },
     {
       "key": "lyra-agents-oma.manage",
-      "source": "Manage Oma"
+      "source": "Manage Agents"
     },
     {
       "key": "lyra-agents-oma.manageMembers",
@@ -2593,12 +2597,24 @@
       "source": "Oma"
     },
     {
+      "key": "lyra-agents-oma.omaMode",
+      "source": "Oma mode"
+    },
+    {
       "key": "lyra-agents-oma.solo",
       "source": "Solo"
     },
     {
+      "key": "lyra-agents-oma.soloMode",
+      "source": "Solo mode"
+    },
+    {
       "key": "lyra-agents-oma.tagline",
       "source": "Oh My Agents"
+    },
+    {
+      "key": "lyra-agents-oma.teamPlan",
+      "source": "Oma Team Plan"
     },
     {
       "key": "lyra-agents-page-citation.chipLabel",
