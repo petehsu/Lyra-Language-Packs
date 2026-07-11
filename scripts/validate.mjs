@@ -9,6 +9,7 @@ const expectedKeys = Object.keys(expected).sort();
 const packDirectory = path.join(root, "packs");
 const baselinePath = path.join(root, "pack-baselines.json");
 const baselines = existsSync(baselinePath) ? readJson(baselinePath) : { packs: {} };
+const MIN_TRANSLATION_COVERAGE = 0.8;
 
 if (sourceManifest.keysetHash !== keysetHash(expected) || sourceManifest.contentHash !== contentHash(expected)) {
   throw new Error("source manifest fingerprint is invalid");
@@ -57,6 +58,14 @@ if (existsSync(packDirectory)) {
       if (typeof pack[nativeKey] !== "string") {
         throw new Error(`${locale}: missing ${nativeKey}`);
       }
+    }
+    const unchanged = actualKeys.filter((key) => pack[key] === expected[key]);
+    const coverage = 1 - unchanged.length / actualKeys.length;
+    if (coverage < MIN_TRANSLATION_COVERAGE) {
+      throw new Error(
+        `${locale}: translation coverage ${(coverage * 100).toFixed(1)}% is below `
+        + `${(MIN_TRANSLATION_COVERAGE * 100).toFixed(0)}%`
+      );
     }
     const baseline = baselines.packs?.[locale];
     if (

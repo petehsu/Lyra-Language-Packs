@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "packs": {
     "ja-JP": {
-      "sourceContentHash": "9013f158e4de105734118d307f36c5e9dbaca4589d4b39f418a53dca6375a386",
-      "keysetHash": "ae28dde6a10d8a24284c0b68d877fcea8f5f2437bb774a0278250782f9081404"
+      "sourceContentHash": "fb8d9e3313bd05b3813736e863527ab8f761a75b47ab1386f58bba1926e78382",
+      "keysetHash": "cac04665f6fe5566dc017adf4b969147793b89202b4862402275b1b91c7ddc72"
     },
     "ko-KR": {
-      "sourceContentHash": "9013f158e4de105734118d307f36c5e9dbaca4589d4b39f418a53dca6375a386",
-      "keysetHash": "ae28dde6a10d8a24284c0b68d877fcea8f5f2437bb774a0278250782f9081404"
+      "sourceContentHash": "fb8d9e3313bd05b3813736e863527ab8f761a75b47ab1386f58bba1926e78382",
+      "keysetHash": "cac04665f6fe5566dc017adf4b969147793b89202b4862402275b1b91c7ddc72"
     }
   }
 }
