@@ -32,8 +32,8 @@ node scripts/refresh-baselines.mjs ja-JP
 
 Each release contains:
 
-- `catalog.json` and `catalog.sig`
-- `{locale}.json` and `{locale}.sig` for every published pack
+- `catalog.json` and `catalog.json.sig`
+- `{locale}.json` and `{locale}.json.sig` for every published pack
 
 The signing private key is stored only in the `LYRA_LANGUAGE_PACKS_ED25519_PRIVATE_KEY`
 GitHub Actions secret. The public key is in Lyra Desktop.
