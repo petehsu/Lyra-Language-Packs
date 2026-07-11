@@ -19,6 +19,15 @@ of all UI and native-menu keys. It never contains executable code.
 `ja-JP` and `ko-KR` drafts are intentionally kept in pull requests until reviewed. A
 draft is not an Official Release and is never shown by the desktop client's catalog.
 
+To start a translation update branch, sync the source snapshot from the commit in its
+`needs-update` issue, then refresh only the translated locale's baseline after updating
+the package:
+
+```sh
+node scripts/sync-source-manifest.mjs <lyra-commit-sha>
+node scripts/refresh-baselines.mjs ja-JP
+```
+
 ## Release assets
 
 Each release contains:

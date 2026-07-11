@@ -6,6 +6,7 @@
     "validate": "node scripts/validate.mjs",
     "build-release": "node scripts/build-release.mjs",
     "refresh-baselines": "node scripts/refresh-baselines.mjs",
+    "sync-source": "node scripts/sync-source-manifest.mjs",
     "seed-drafts": "node scripts/seed-draft-packs.mjs"
   }
 }
