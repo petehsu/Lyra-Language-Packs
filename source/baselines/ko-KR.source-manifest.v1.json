@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.1.0",
-  "keysetHash": "517332798aa8fcf913fee9915aa16ad21b92b4245670b2432472e17227929cc2",
-  "contentHash": "106991777c0422d0f1a7e750c161753ae10391560c629682f8a1a85413e0c2eb",
+  "appVersion": "0.1.0-preview.2",
+  "keysetHash": "c748cbdc9dd666d809eda2eb1913460e46f3384b4a1029b1905873bb8f07ec47",
+  "contentHash": "23730ec49d4c3caf24d8a3d6116b6c3142f4f3afe6fe2b0d710a00c108b3bc73",
   "entries": [
     {
       "key": "agentGit.binaryDiff",
@@ -373,8 +373,16 @@
       "source": "Applied to plan — review panel now offers \"Revise from feedback\""
     },
     {
+      "key": "agentPlanBoard.tempChatApplyFailed",
+      "source": "Failed to apply plan revision."
+    },
+    {
       "key": "agentPlanBoard.tempChatApplyToPlan",
       "source": "Apply to plan"
+    },
+    {
+      "key": "agentPlanBoard.tempChatBridgeUnavailable",
+      "source": "Desktop bridge is unavailable."
     },
     {
       "key": "agentPlanBoard.tempChatBusy",
@@ -399,6 +407,14 @@
     {
       "key": "agentPlanBoard.tempChatSend",
       "source": "Send"
+    },
+    {
+      "key": "agentPlanBoard.tempChatSendFailed",
+      "source": "Failed to send message."
+    },
+    {
+      "key": "agentPlanBoard.tempChatStartFailed",
+      "source": "Failed to start plan chat."
     },
     {
       "key": "agentPlanBoard.tempChatTitle",
@@ -1773,22 +1789,6 @@
       "source": "Clear custom name"
     },
     {
-      "key": "header.codegraphFailed",
-      "source": "Code index failed"
-    },
-    {
-      "key": "header.codegraphIdle",
-      "source": "Code graph: not indexed"
-    },
-    {
-      "key": "header.codegraphIndexing",
-      "source": "Indexing code... {progress}%"
-    },
-    {
-      "key": "header.codegraphReady",
-      "source": "Code indexed ({fileCount} files)"
-    },
-    {
       "key": "header.delete",
       "source": "Delete"
     },
@@ -1954,7 +1954,7 @@
     },
     {
       "key": "location.authDialogDescription",
-      "source": "Lyra will try browser and system physical location, then show a readable place name. Location is shown in the UI only and is not sent to the Agent."
+      "source": "If you allow this, Lyra obtains precise coordinates from browser or system location services and stores the current fix locally for the location indicator. This release does not send the coordinates to a public reverse-geocoding service or include them in Agent model context."
     },
     {
       "key": "location.authDialogSourceSubtitle",
@@ -2006,7 +2006,7 @@
     },
     {
       "key": "location.revokeDialogDescription",
-      "source": "Lyra will clear the cached place name and coordinates. You can re-enable location later from the AI panel."
+      "source": "Lyra will clear the locally cached coordinates. You can re-enable location later from the AI panel."
     },
     {
       "key": "location.revokeDialogKeep",
@@ -2014,7 +2014,7 @@
     },
     {
       "key": "location.revokeDialogSubtitle",
-      "source": "Location is not sent to the Agent"
+      "source": "Precise coordinates are stored locally"
     },
     {
       "key": "location.revokeDialogTitle",
@@ -2033,6 +2033,10 @@
       "source": "Login method"
     },
     {
+      "key": "loginManager.bridgeUnavailable",
+      "source": "Login Manager bridge is unavailable."
+    },
+    {
       "key": "loginManager.cancel",
       "source": "Cancel"
     },
@@ -2049,12 +2053,28 @@
       "source": "Copy"
     },
     {
+      "key": "loginManager.credentialCaptureDisabled",
+      "source": "Automatic password capture is off"
+    },
+    {
+      "key": "loginManager.credentialCaptureDisclosure",
+      "source": "When enabled, Lyra observes submitted login forms in Lyra browser tabs and stores usernames plus locally encrypted passwords. Nothing is captured until you enable it, and you can turn it off at any time."
+    },
+    {
+      "key": "loginManager.credentialCaptureEnabled",
+      "source": "Automatic password capture is enabled"
+    },
+    {
       "key": "loginManager.credentialsTab",
       "source": "Passwords"
     },
     {
       "key": "loginManager.deleteCredential",
       "source": "Delete password"
+    },
+    {
+      "key": "loginManager.disableCredentialCapture",
+      "source": "Disable password capture"
     },
     {
       "key": "loginManager.edit",
@@ -2067,6 +2087,10 @@
     {
       "key": "loginManager.emptySessionsTitle",
       "source": "No site sessions yet"
+    },
+    {
+      "key": "loginManager.enableCredentialCapture",
+      "source": "Enable password capture"
     },
     {
       "key": "loginManager.fill",
@@ -2569,12 +2593,24 @@
       "source": "Agent is running"
     },
     {
-      "key": "lyra-agents-oma.beta",
-      "source": "Beta"
-    },
-    {
       "key": "lyra-agents-oma.channels",
       "source": "Oma channels"
+    },
+    {
+      "key": "lyra-agents-oma.createAnyway",
+      "source": "Create anyway"
+    },
+    {
+      "key": "lyra-agents-oma.experimental",
+      "source": "Experimental"
+    },
+    {
+      "key": "lyra-agents-oma.experimentalWarningDescription",
+      "source": "Oma has not been thoroughly tested. Some capabilities may be unavailable or unstable, and session state may fail. Do not use it for important work; use Solo for a stable workflow."
+    },
+    {
+      "key": "lyra-agents-oma.experimentalWarningTitle",
+      "source": "Oma is experimental"
     },
     {
       "key": "lyra-agents-oma.group",
@@ -3130,7 +3166,7 @@
     },
     {
       "key": "permissionPolicy.adminCredentialDescription",
-      "source": "To confirm operator identity and provide credentials for protected local operations when needed, enter the local administrator password. The password is saved as an encrypted Lyra sensitive value reference; the model can only see an unreadable reference and cannot read the plaintext."
+      "source": "Enter the local administrator password so Lyra Agent can run local operations that require sudo in full auto mode. It is stored encrypted and loaded into the local Agent runtime; the model cannot read the plaintext, but the host supplies it to sudo when the Agent runs a protected command."
     },
     {
       "key": "permissionPolicy.adminCredentialLabel",
@@ -3249,6 +3285,46 @@
       "source": "Scroll to bottom"
     },
     {
+      "key": "settings.accountDeleteCancelLabel",
+      "source": "Cancel"
+    },
+    {
+      "key": "settings.accountDeleteConfirmLabel",
+      "source": "Delete account"
+    },
+    {
+      "key": "settings.accountDeleteDescription",
+      "source": "This permanently deletes your Supabase authentication account and Lyra cloud profile. Local workspaces and other local data are not deleted. Type DELETE to continue."
+    },
+    {
+      "key": "settings.accountDeleteFailedLabel",
+      "source": "Could not delete account"
+    },
+    {
+      "key": "settings.accountDeleteInputLabel",
+      "source": "Type DELETE"
+    },
+    {
+      "key": "settings.accountDeleteLabel",
+      "source": "Delete cloud account"
+    },
+    {
+      "key": "settings.accountDeleteTitle",
+      "source": "Permanently delete your cloud account?"
+    },
+    {
+      "key": "settings.accountLoginLabel",
+      "source": "Sign in"
+    },
+    {
+      "key": "settings.accountLogoutFailedLabel",
+      "source": "Could not sign out"
+    },
+    {
+      "key": "settings.accountLogoutLabel",
+      "source": "Sign out"
+    },
+    {
       "key": "settings.actCacheDescription",
       "source": "Cache successful browser_ax.act results keyed by intent + page snapshot. Repeats skip AX-tree resolution for 60s."
     },
@@ -3349,24 +3425,12 @@
       "source": "https://api.openai.com/v1"
     },
     {
-      "key": "settings.aiCallbackInputLabel",
-      "source": "Callback URL or code"
-    },
-    {
-      "key": "settings.aiCallbackInputPlaceholder",
-      "source": "Paste the callback URL, query string, or authorization code"
-    },
-    {
       "key": "settings.aiCancel",
       "source": "Cancel"
     },
     {
       "key": "settings.aiCategoryLabel",
       "source": "Lyra Agents"
-    },
-    {
-      "key": "settings.aiCompleteLogin",
-      "source": "Complete login"
     },
     {
       "key": "settings.aiConfigFileDescription",
@@ -3491,18 +3555,6 @@
     {
       "key": "settings.aiLocalSupportsToolCalling",
       "source": "Tool calling"
-    },
-    {
-      "key": "settings.aiLoginCallbackDescription",
-      "source": "Lyra Agent verifies the login flow before saving tokens under the Agent data directory."
-    },
-    {
-      "key": "settings.aiLoginProvidersDescription",
-      "source": "Sign in to model providers through Lyra Agent. OAuth opens in your browser and completes here with a pasted callback."
-    },
-    {
-      "key": "settings.aiLoginProvidersTitle",
-      "source": "Provider login"
     },
     {
       "key": "settings.aiMainModelLabel",
@@ -3905,10 +3957,6 @@
       "source": "Uninstall"
     },
     {
-      "key": "settings.aiStartLogin",
-      "source": "Start login"
-    },
-    {
       "key": "settings.aiStatefulPromptContractLabel",
       "source": "Responses stateful prompts"
     },
@@ -3939,22 +3987,6 @@
     {
       "key": "settings.appearanceCategoryLabel",
       "source": "Appearance"
-    },
-    {
-      "key": "settings.codeGraphEmbeddingDescription",
-      "source": "Load a local ONNX embedding model (BGE-Small) for semantic symbol search. Increases memory usage. Takes effect on next project index."
-    },
-    {
-      "key": "settings.codeGraphEmbeddingDisabled",
-      "source": "Disabled"
-    },
-    {
-      "key": "settings.codeGraphEmbeddingEnabled",
-      "source": "Enabled"
-    },
-    {
-      "key": "settings.codeGraphEmbeddingLabel",
-      "source": "CodeGraph Semantic Search"
     },
     {
       "key": "settings.docsNavLabel",
@@ -4031,66 +4063,6 @@
     {
       "key": "settings.languageStatusUpdating",
       "source": "Updating"
-    },
-    {
-      "key": "settings.legalCategoryLabel",
-      "source": "Legal"
-    },
-    {
-      "key": "settings.legalGeneratedAtLabel",
-      "source": "Generated"
-    },
-    {
-      "key": "settings.legalHomepageLabel",
-      "source": "Homepage"
-    },
-    {
-      "key": "settings.legalLastUpdatedPrefix",
-      "source": "Last updated"
-    },
-    {
-      "key": "settings.legalLicenseLabel",
-      "source": "License"
-    },
-    {
-      "key": "settings.legalLicenseTextLabel",
-      "source": "License text"
-    },
-    {
-      "key": "settings.legalNoticesEmptyLabel",
-      "source": "No notices generated"
-    },
-    {
-      "key": "settings.legalNoticesErrorLabel",
-      "source": "Open source notices are unavailable."
-    },
-    {
-      "key": "settings.legalNoticesIntro",
-      "source": "The following lists the open source software components used by Lyra and their applicable license information."
-    },
-    {
-      "key": "settings.legalNoticesLabel",
-      "source": "OSS license notices"
-    },
-    {
-      "key": "settings.legalNoticesLoadingLabel",
-      "source": "Loading notices"
-    },
-    {
-      "key": "settings.legalNoticeTextLabel",
-      "source": "Notice"
-    },
-    {
-      "key": "settings.legalPackageCountLabel",
-      "source": "Packages"
-    },
-    {
-      "key": "settings.legalRepositoryLabel",
-      "source": "Repository"
-    },
-    {
-      "key": "settings.legalSourceLabel",
-      "source": "Source"
     },
     {
       "key": "settings.linuxCategoryLabel",
@@ -4193,6 +4165,10 @@
       "source": "Warnings"
     },
     {
+      "key": "settings.localAccountLabel",
+      "source": "Local account"
+    },
+    {
       "key": "settings.locale.en-US",
       "source": "English (US)"
     },
@@ -4231,6 +4207,22 @@
     {
       "key": "settings.pageTitle",
       "source": "Settings"
+    },
+    {
+      "key": "settings.personaSignalsDescription",
+      "source": "When enabled, Lyra includes local identity signals (e.g. Git username) in conversations so models better understand your context. Can be disabled at any time."
+    },
+    {
+      "key": "settings.personaSignalsDisabled",
+      "source": "Do not read identity signals"
+    },
+    {
+      "key": "settings.personaSignalsEnabled",
+      "source": "Allow identity signals"
+    },
+    {
+      "key": "settings.personaSignalsLabel",
+      "source": "Personal identity context"
     },
     {
       "key": "settings.preventSleepDescription",
@@ -4453,8 +4445,248 @@
       "source": "UI Style"
     },
     {
+      "key": "settings.windowMaterialDescription",
+      "source": "Use the system blur and translucent window background."
+    },
+    {
+      "key": "settings.windowMaterialDisabled",
+      "source": "Disabled"
+    },
+    {
+      "key": "settings.windowMaterialEnabled",
+      "source": "Enabled"
+    },
+    {
+      "key": "settings.windowMaterialLabel",
+      "source": "System material background"
+    },
+    {
       "key": "settings.workspaceCategoryLabel",
       "source": "Workspace"
+    },
+    {
+      "key": "softwareStore.action.browserSearchOpenUrlDescription",
+      "source": "Open a URL in a new Lyra browser tab."
+    },
+    {
+      "key": "softwareStore.action.browserSearchOpenUrlTitle",
+      "source": "Open URL"
+    },
+    {
+      "key": "softwareStore.action.browserSearchReadCurrentPageDescription",
+      "source": "Read the current Lyra browser page runtime state."
+    },
+    {
+      "key": "softwareStore.action.browserSearchReadCurrentPageTitle",
+      "source": "Read Current Page"
+    },
+    {
+      "key": "softwareStore.action.browserSearchReadDownloadsDescription",
+      "source": "Read Lyra Download Manager tasks related to browser downloads."
+    },
+    {
+      "key": "softwareStore.action.browserSearchReadDownloadsTitle",
+      "source": "Read Downloads"
+    },
+    {
+      "key": "softwareStore.action.browserSearchReadStateDescription",
+      "source": "Read current Lyra browser and search tab state."
+    },
+    {
+      "key": "softwareStore.action.browserSearchReadStateTitle",
+      "source": "Read Browser State"
+    },
+    {
+      "key": "softwareStore.action.browserSearchSearchDescription",
+      "source": "Open Lyra search results for a query."
+    },
+    {
+      "key": "softwareStore.action.browserSearchSearchInPageDescription",
+      "source": "Search text within the current Lyra browser page and highlight matches when the page is live."
+    },
+    {
+      "key": "softwareStore.action.browserSearchSearchInPageTitle",
+      "source": "Search In Page"
+    },
+    {
+      "key": "softwareStore.action.browserSearchSearchTitle",
+      "source": "Search"
+    },
+    {
+      "key": "softwareStore.action.fileManagerOpenHomeDescription",
+      "source": "Open the File Manager home view."
+    },
+    {
+      "key": "softwareStore.action.fileManagerOpenHomeTitle",
+      "source": "Open Home"
+    },
+    {
+      "key": "softwareStore.action.fileManagerOpenPathDescription",
+      "source": "Open a directory path in File Manager."
+    },
+    {
+      "key": "softwareStore.action.fileManagerOpenPathTitle",
+      "source": "Open Path"
+    },
+    {
+      "key": "softwareStore.action.fileManagerReadCurrentDirectoryDescription",
+      "source": "Read the current File Manager directory listing."
+    },
+    {
+      "key": "softwareStore.action.fileManagerReadCurrentDirectoryTitle",
+      "source": "Read Current Directory"
+    },
+    {
+      "key": "softwareStore.action.fileManagerRevealPathDescription",
+      "source": "Open a path's containing folder in File Manager and select the matching entry when visible."
+    },
+    {
+      "key": "softwareStore.action.fileManagerRevealPathTitle",
+      "source": "Reveal Path"
+    },
+    {
+      "key": "softwareStore.action.fileManagerSelectEntryDescription",
+      "source": "Select a visible File Manager entry by id."
+    },
+    {
+      "key": "softwareStore.action.fileManagerSelectEntryTitle",
+      "source": "Select Entry"
+    },
+    {
+      "key": "softwareStore.action.imageViewerOpenSourceDescription",
+      "source": "Reveal the image source path in File Manager."
+    },
+    {
+      "key": "softwareStore.action.imageViewerOpenSourceTitle",
+      "source": "Open Source"
+    },
+    {
+      "key": "softwareStore.action.imageViewerPrepareVisionFallbackDescription",
+      "source": "Prepare current Image Viewer source, metadata, viewport, and open target for OCR or model vision fallback."
+    },
+    {
+      "key": "softwareStore.action.imageViewerPrepareVisionFallbackTitle",
+      "source": "Prepare Vision Fallback"
+    },
+    {
+      "key": "softwareStore.action.imageViewerReadMetadataDescription",
+      "source": "Read native image metadata, viewport, and source path from Image Viewer."
+    },
+    {
+      "key": "softwareStore.action.imageViewerReadMetadataTitle",
+      "source": "Read Image Metadata"
+    },
+    {
+      "key": "softwareStore.action.imageViewerZoomPanDescription",
+      "source": "Set Image Viewer zoom, pan, rotation, or background."
+    },
+    {
+      "key": "softwareStore.action.imageViewerZoomPanTitle",
+      "source": "Zoom And Pan"
+    },
+    {
+      "key": "softwareStore.action.loginManagerFillCredentialDescription",
+      "source": "Fill a saved credential into the matching Lyra Browser login form after runtime permission is granted. Password text is not returned."
+    },
+    {
+      "key": "softwareStore.action.loginManagerFillCredentialTitle",
+      "source": "Request Credential Fill"
+    },
+    {
+      "key": "softwareStore.action.loginManagerLogoutSiteDescription",
+      "source": "Clear cookies, storage, cache, and service-worker site data for a Lyra Browser site after runtime permission is granted."
+    },
+    {
+      "key": "softwareStore.action.loginManagerLogoutSiteTitle",
+      "source": "Log Out Site"
+    },
+    {
+      "key": "softwareStore.action.loginManagerOpenDescription",
+      "source": "Open the Lyra Login Manager settings section."
+    },
+    {
+      "key": "softwareStore.action.loginManagerOpenTitle",
+      "source": "Open Login Manager"
+    },
+    {
+      "key": "softwareStore.action.loginManagerReadStateDescription",
+      "source": "Read Lyra Browser site sessions and saved credential metadata. Password text is never returned."
+    },
+    {
+      "key": "softwareStore.action.loginManagerReadStateTitle",
+      "source": "Read Login Manager"
+    },
+    {
+      "key": "softwareStore.action.loginManagerUpdateAuthMethodDescription",
+      "source": "Update a Login Manager session's account note, notes, or manually confirmed login method."
+    },
+    {
+      "key": "softwareStore.action.loginManagerUpdateAuthMethodTitle",
+      "source": "Update Login Method"
+    },
+    {
+      "key": "softwareStore.action.settingsOpenSectionDescription",
+      "source": "Open a Workbench settings section."
+    },
+    {
+      "key": "softwareStore.action.settingsOpenSectionTitle",
+      "source": "Open Section"
+    },
+    {
+      "key": "softwareStore.action.softwareStoreInstallDescription",
+      "source": "Install a UIUX pack from local path, git, or npm after runtime permission is granted."
+    },
+    {
+      "key": "softwareStore.action.softwareStoreInstallTitle",
+      "source": "Install UIUX Pack"
+    },
+    {
+      "key": "softwareStore.action.softwareStoreListInstalledAppsDescription",
+      "source": "Read installed Lyra built-in and trusted UIUX software adapters."
+    },
+    {
+      "key": "softwareStore.action.softwareStoreListInstalledAppsTitle",
+      "source": "List Installed Apps"
+    },
+    {
+      "key": "softwareStore.action.softwareStoreOpenDescription",
+      "source": "Open the Lyra Software Store."
+    },
+    {
+      "key": "softwareStore.action.softwareStoreOpenDetailDescription",
+      "source": "Open Software Store and select a built-in software or UIUX pack detail."
+    },
+    {
+      "key": "softwareStore.action.softwareStoreOpenDetailTitle",
+      "source": "Open App Detail"
+    },
+    {
+      "key": "softwareStore.action.softwareStoreOpenTitle",
+      "source": "Open Software Store"
+    },
+    {
+      "key": "softwareStore.action.softwareStoreUninstallDescription",
+      "source": "Uninstall an installed UIUX pack after runtime permission is granted."
+    },
+    {
+      "key": "softwareStore.action.softwareStoreUninstallTitle",
+      "source": "Uninstall UIUX Pack"
+    },
+    {
+      "key": "softwareStore.action.terminalReadVisibleBufferDescription",
+      "source": "Read visible terminal tab metadata and the retained output projection for the active terminal pane."
+    },
+    {
+      "key": "softwareStore.action.terminalReadVisibleBufferTitle",
+      "source": "Read Visible Terminal"
+    },
+    {
+      "key": "softwareStore.action.terminalSendControlledInputDescription",
+      "source": "Send controlled input to a terminal session after an explicit risk-policy acknowledgement."
+    },
+    {
+      "key": "softwareStore.action.terminalSendControlledInputTitle",
+      "source": "Send Controlled Input"
     },
     {
       "key": "softwareStore.actionsLabel",
@@ -4541,6 +4773,10 @@
       "source": "Lyra software"
     },
     {
+      "key": "softwareStore.cancelUpdate",
+      "source": "Cancel update"
+    },
+    {
       "key": "softwareStore.categoryAgent",
       "source": "Agent"
     },
@@ -4561,12 +4797,64 @@
       "source": "System"
     },
     {
+      "key": "softwareStore.checkAndStageUpdates",
+      "source": "Check and stage updates"
+    },
+    {
       "key": "softwareStore.chooseLocal",
       "source": "Install local pack"
     },
     {
+      "key": "softwareStore.commandCompleted",
+      "source": "Module command completed."
+    },
+    {
+      "key": "softwareStore.componentBadge",
+      "source": "Component"
+    },
+    {
+      "key": "softwareStore.componentsTab",
+      "source": "Components"
+    },
+    {
+      "key": "softwareStore.componentType",
+      "source": "Signed Lyra component"
+    },
+    {
       "key": "softwareStore.contextRequired",
       "source": "Open from a file, session, or runtime context."
+    },
+    {
+      "key": "softwareStore.contributionCapabilitiesLabel",
+      "source": "Capabilities"
+    },
+    {
+      "key": "softwareStore.contributionCommandsLabel",
+      "source": "Commands"
+    },
+    {
+      "key": "softwareStore.contributionEventsLabel",
+      "source": "Events"
+    },
+    {
+      "key": "softwareStore.contributionSettingsLabel",
+      "source": "Settings"
+    },
+    {
+      "key": "softwareStore.contributionsLabel",
+      "source": "Active module contributions"
+    },
+    {
+      "key": "softwareStore.contributionStatusLabel",
+      "source": "Status metadata"
+    },
+    {
+      "key": "softwareStore.coreRestartConfirm",
+      "source": "Lyra will fully quit and apply the verified Core update. If integrity verification or replacement fails, the previous version will be restored. Continue?"
+    },
+    {
+      "key": "softwareStore.coreUpdateStarting",
+      "source": "Lyra is quitting to apply the Core update."
     },
     {
       "key": "softwareStore.detailsTitle",
@@ -4649,8 +4937,36 @@
       "source": "Logins"
     },
     {
+      "key": "softwareStore.moduleFallback",
+      "source": "Built-in compatibility surface"
+    },
+    {
+      "key": "softwareStore.moduleLoaded",
+      "source": "Independent module loaded"
+    },
+    {
+      "key": "softwareStore.moduleMissing",
+      "source": "Active module is not loaded"
+    },
+    {
+      "key": "softwareStore.moduleStartFailed",
+      "source": "This app surface could not start."
+    },
+    {
+      "key": "softwareStore.moduleUnavailableDescription",
+      "source": "This module is unavailable. Its tab state has been preserved."
+    },
+    {
+      "key": "softwareStore.moduleVersionMismatch",
+      "source": "The loaded module does not match the active version."
+    },
+    {
       "key": "softwareStore.noActions",
       "source": "No actions"
+    },
+    {
+      "key": "softwareStore.noContributions",
+      "source": "No declarations in this group"
     },
     {
       "key": "softwareStore.noPermissions",
@@ -4689,6 +5005,10 @@
       "source": "Open"
     },
     {
+      "key": "softwareStore.openContributionSettings",
+      "source": "Open settings"
+    },
+    {
       "key": "softwareStore.openUnavailable",
       "source": "Unavailable"
     },
@@ -4709,12 +5029,32 @@
       "source": "Permissions"
     },
     {
+      "key": "softwareStore.previewChannel",
+      "source": "Preview"
+    },
+    {
       "key": "softwareStore.refresh",
       "source": "Refresh software"
     },
     {
       "key": "softwareStore.reloadRequired",
       "source": "Activation will apply after reloading the Workbench."
+    },
+    {
+      "key": "softwareStore.repairCompleted",
+      "source": "The active module was loaded."
+    },
+    {
+      "key": "softwareStore.repairModule",
+      "source": "Repair module"
+    },
+    {
+      "key": "softwareStore.requiredCapabilityLabel",
+      "source": "Requires"
+    },
+    {
+      "key": "softwareStore.restartAndApply",
+      "source": "Restart and apply"
     },
     {
       "key": "softwareStore.revokedBadge",
@@ -4727,6 +5067,14 @@
     {
       "key": "softwareStore.riskLabel",
       "source": "Risk"
+    },
+    {
+      "key": "softwareStore.rollback",
+      "source": "Roll back"
+    },
+    {
+      "key": "softwareStore.runCommand",
+      "source": "Run"
     },
     {
       "key": "softwareStore.searchPlaceholder",
@@ -4761,6 +5109,10 @@
       "source": "Source"
     },
     {
+      "key": "softwareStore.stableChannel",
+      "source": "Stable"
+    },
+    {
       "key": "softwareStore.statusLabel",
       "source": "Status"
     },
@@ -4783,6 +5135,10 @@
     {
       "key": "softwareStore.trust",
       "source": "Trust"
+    },
+    {
+      "key": "softwareStore.trustConfirmation",
+      "source": "This UIUX pack is not sandboxed. Trusting it allows its JavaScript to run inside Lyra's Workbench with the full trusted Desktop UI API and access available to the renderer. Only continue if you know and trust its publisher and source. Trust this pack?"
     },
     {
       "key": "softwareStore.trustedBadge",
@@ -4813,12 +5169,220 @@
       "source": "Untrusted"
     },
     {
+      "key": "softwareStore.updateCancelled",
+      "source": "Component update cancelled."
+    },
+    {
+      "key": "softwareStore.updateChannelLabel",
+      "source": "Release channel"
+    },
+    {
       "key": "softwareStore.updatedAtLabel",
       "source": "Updated"
     },
     {
+      "key": "softwareStore.updateDescription",
+      "source": "Check a signed release channel and stage its exact BOM. Each component switches only at its safe point."
+    },
+    {
+      "key": "softwareStore.updateProgressLabel",
+      "source": "Update progress"
+    },
+    {
+      "key": "softwareStore.updateReady",
+      "source": "The verified update is ready to switch:"
+    },
+    {
+      "key": "softwareStore.updateTitle",
+      "source": "Component updates"
+    },
+    {
       "key": "softwareStore.versionLabel",
       "source": "Version"
+    },
+    {
+      "key": "startup.action.back",
+      "source": "Back"
+    },
+    {
+      "key": "startup.action.cancel",
+      "source": "Cancel"
+    },
+    {
+      "key": "startup.action.continue",
+      "source": "Continue"
+    },
+    {
+      "key": "startup.action.copyAuthUrl",
+      "source": "Click to copy authorization URL"
+    },
+    {
+      "key": "startup.action.local",
+      "source": "Continue locally"
+    },
+    {
+      "key": "startup.action.login",
+      "source": "Log in"
+    },
+    {
+      "key": "startup.action.privacy",
+      "source": "Privacy"
+    },
+    {
+      "key": "startup.action.signup",
+      "source": "Sign up"
+    },
+    {
+      "key": "startup.action.terms",
+      "source": "Terms"
+    },
+    {
+      "key": "startup.error.authFailed",
+      "source": "The login did not finish. Please try again."
+    },
+    {
+      "key": "startup.error.notConfigured",
+      "source": "Unable to connect to account service. Please check your network and try again."
+    },
+    {
+      "key": "startup.hover.audioMuted",
+      "source": "It seems this song is rather nice."
+    },
+    {
+      "key": "startup.hover.audioPlaying",
+      "source": "I am sorry if the background music is inconvenient. You can turn it off here."
+    },
+    {
+      "key": "startup.hover.audioUnavailable",
+      "source": "There is music here. If you cannot hear it after clicking, that may be my fault."
+    },
+    {
+      "key": "startup.hover.brand",
+      "source": "Lyra is the name of a constellation and a lyre, an instrument for making music. I hope Lyra can help turn your ideas into something real."
+    },
+    {
+      "key": "startup.hover.cancel",
+      "source": "You can cancel whenever you like. I’ll be here when you’re ready."
+    },
+    {
+      "key": "startup.hover.local",
+      "source": "That is your choice. Lyra will keep supporting local configuration, at least for now."
+    },
+    {
+      "key": "startup.hover.login",
+      "source": "If you have registered with my platform before, you can use this to enter Lyra. You are always welcome back."
+    },
+    {
+      "key": "startup.hover.loginKnown",
+      "source": "Welcome back, {name}. I’m glad to see you again."
+    },
+    {
+      "key": "startup.hover.logo",
+      "source": "This is Lyra's logo. I have been developing and maintaining the project on my own, and seeing all of this makes it feel worthwhile."
+    },
+    {
+      "key": "startup.hover.privacy",
+      "source": "You may want to read the privacy policy. There may be something in it you would like to know."
+    },
+    {
+      "key": "startup.hover.signup",
+      "source": "If you have not registered with my platform yet, I would be glad to have you. Your suggestions can help Lyra become better."
+    },
+    {
+      "key": "startup.hover.signupKnown",
+      "source": "{name}, you have registered with Lyra before. Perhaps you forgot, or perhaps you simply want to begin again. It is your choice."
+    },
+    {
+      "key": "startup.hover.tagline",
+      "source": "This is only a tagline. It may sound a little grand, but Lyra truly treats it as a direction to grow toward."
+    },
+    {
+      "key": "startup.hover.terms",
+      "source": "You may want to read the terms, although I know almost nobody does."
+    },
+    {
+      "key": "startup.legal.consent",
+      "source": "I have read and agree to the User Agreement and acknowledge the Privacy Policy for this version of Lyra."
+    },
+    {
+      "key": "startup.legal.description",
+      "source": "Lyra is local-first, but enabled models, websites, account services and integrations can process data remotely. Review both documents before continuing."
+    },
+    {
+      "key": "startup.legal.title",
+      "source": "Review Lyra's terms and privacy policy"
+    },
+    {
+      "key": "startup.preference.chinese",
+      "source": "中文"
+    },
+    {
+      "key": "startup.preference.chooseLanguage",
+      "source": "Please choose the interface language you are most comfortable using. You can change it later in Settings."
+    },
+    {
+      "key": "startup.preference.chooseTheme",
+      "source": "Please choose the interface theme you would like to use now. You can quickly change it anytime in Settings."
+    },
+    {
+      "key": "startup.preference.dark",
+      "source": "Dark"
+    },
+    {
+      "key": "startup.preference.english",
+      "source": "English"
+    },
+    {
+      "key": "startup.preference.followSystem",
+      "source": "Follow system"
+    },
+    {
+      "key": "startup.preference.light",
+      "source": "Light"
+    },
+    {
+      "key": "startup.preference.systemTheme",
+      "source": "Follow system"
+    },
+    {
+      "key": "startup.slogan.agents",
+      "source": "Oh my Agents"
+    },
+    {
+      "key": "startup.slogan.anywhere",
+      "source": "Anything anytime anywhere and anymore"
+    },
+    {
+      "key": "startup.slogan.possible",
+      "source": "If u truly believe anything is possible"
+    },
+    {
+      "key": "startup.slogan.primary",
+      "source": "The best  do anything with Agent"
+    },
+    {
+      "key": "startup.state.browser",
+      "source": "Finish Google authorization in your browser"
+    },
+    {
+      "key": "startup.state.checking",
+      "source": "Preparing Lyra…"
+    },
+    {
+      "key": "startup.state.copiedAuthUrl",
+      "source": "Copied"
+    },
+    {
+      "key": "startup.state.downloading",
+      "source": "Downloading language pack…"
+    },
+    {
+      "key": "startup.welcome.back",
+      "source": "Welcome back, {name}"
+    },
+    {
+      "key": "startup.welcome.newUser",
+      "source": "Welcome to Lyra"
     },
     {
       "key": "terminal.closePane",
