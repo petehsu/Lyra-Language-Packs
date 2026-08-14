@@ -2,15 +2,55 @@
   "ja-JP": {
     "nativeName": "日本語",
     "englishName": "Japanese",
-    "aliases": ["ja", "jp", "japanese", "nihongo", "nihon", "日本語", "にほんご", "日语", "日文"],
-    "version": "0.1.3",
+    "aliases": [
+      "ja",
+      "jp",
+      "japanese",
+      "nihongo",
+      "nihon",
+      "日本語",
+      "にほんご",
+      "日语",
+      "日文"
+    ],
+    "version": "0.1.5",
     "minAppVersion": "0.1.0"
   },
   "ko-KR": {
     "nativeName": "한국어",
     "englishName": "Korean",
-    "aliases": ["ko", "kr", "korean", "hanguk", "hangugeo", "한국어", "한글", "韩语", "韩文", "朝鲜语"],
-    "version": "0.1.3",
+    "aliases": [
+      "ko",
+      "kr",
+      "korean",
+      "hanguk",
+      "hangugeo",
+      "한국어",
+      "한글",
+      "韩语",
+      "韩文",
+      "朝鲜语"
+    ],
+    "version": "0.1.5",
+    "minAppVersion": "0.1.0"
+  },
+  "zh-CN": {
+    "nativeName": "简体中文",
+    "englishName": "Simplified Chinese",
+    "aliases": [
+      "zh",
+      "zh-cn",
+      "cn",
+      "chinese",
+      "mandarin",
+      "putonghua",
+      "zhongwen",
+      "中文",
+      "简体",
+      "简体中文",
+      "普通话"
+    ],
+    "version": "0.1.1",
     "minAppVersion": "0.1.0"
   }
 }

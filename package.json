@@ -7,6 +7,7 @@
     "build-release": "node scripts/build-release.mjs",
     "refresh-baselines": "node scripts/refresh-baselines.mjs",
     "sync-source": "node scripts/sync-source-manifest.mjs",
+    "reconcile-source": "node scripts/reconcile-source.mjs",
     "seed-drafts": "node scripts/seed-draft-packs.mjs"
   }
 }
