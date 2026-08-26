@@ -13,7 +13,7 @@
       "日语",
       "日文"
     ],
-    "version": "0.1.8",
+    "version": "0.1.9",
     "minAppVersion": "0.1.0"
   },
   "ko-KR": {
@@ -31,7 +31,7 @@
       "韩文",
       "朝鲜语"
     ],
-    "version": "0.1.8",
+    "version": "0.1.9",
     "minAppVersion": "0.1.0"
   },
   "zh-CN": {
@@ -50,7 +50,7 @@
       "简体中文",
       "普通话"
     ],
-    "version": "0.1.4",
+    "version": "0.1.5",
     "minAppVersion": "0.1.0"
   }
 }
