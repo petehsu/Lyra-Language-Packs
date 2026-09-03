@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "packs": {
     "ja-JP": {
-      "sourceContentHash": "4fac3df53a07bbddcce69c230f07efe7e344cfb6e026ea13a34a3afa3373ceb1",
-      "keysetHash": "62c229309161359ea3fe9cfa4c49e1a2384410ec1d000c8f3e385459eefd2a58"
+      "sourceContentHash": "8cb6fded3187cd90ce0dabb863155c36af8479c1e990f02b86d2e88b4f9a0d81",
+      "keysetHash": "34708675529d8bec0784e4008e54cfd536f3472d838106fface83bb9d2182c20"
     },
     "ko-KR": {
-      "sourceContentHash": "4fac3df53a07bbddcce69c230f07efe7e344cfb6e026ea13a34a3afa3373ceb1",
-      "keysetHash": "62c229309161359ea3fe9cfa4c49e1a2384410ec1d000c8f3e385459eefd2a58"
+      "sourceContentHash": "8cb6fded3187cd90ce0dabb863155c36af8479c1e990f02b86d2e88b4f9a0d81",
+      "keysetHash": "34708675529d8bec0784e4008e54cfd536f3472d838106fface83bb9d2182c20"
     },
     "zh-CN": {
-      "sourceContentHash": "4fac3df53a07bbddcce69c230f07efe7e344cfb6e026ea13a34a3afa3373ceb1",
-      "keysetHash": "62c229309161359ea3fe9cfa4c49e1a2384410ec1d000c8f3e385459eefd2a58"
+      "sourceContentHash": "8cb6fded3187cd90ce0dabb863155c36af8479c1e990f02b86d2e88b4f9a0d81",
+      "keysetHash": "34708675529d8bec0784e4008e54cfd536f3472d838106fface83bb9d2182c20"
     }
   }
 }
